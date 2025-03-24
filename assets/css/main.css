@@ -1,6 +1,6 @@
-/* Only affect images on the projects page, within archive item teasers */
-.page__content .archive__item-teaser img {
-    max-width: 250px; /* ensures your thumbnail size */
+/* Only applies thumbnail sizing to images on projects page */
+.page--projects .archive__item-teaser img {
+    max-width: 250px; /* desired thumbnail width */
     height: auto;
     object-fit: cover;
     border-radius: 8px;
