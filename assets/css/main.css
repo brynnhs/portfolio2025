@@ -1,6 +1,6 @@
-/* Only target images inside projects grid on projects page */
-.entries-grid .archive__item-teaser img {
-    width: 250px; /* Adjust to your preferred thumbnail width */
+/* Only affect images on the projects page, within archive item teasers */
+.page__content .archive__item-teaser img {
+    max-width: 250px; /* ensures your thumbnail size */
     height: auto;
     object-fit: cover;
     border-radius: 8px;
