@@ -8,14 +8,14 @@ permalink: /projects/
   {% for project in site.projects %}
     <article class="archive__item">
       {% if project.image %}
-      <div class="archive__item-teaser" style="margin-bottom:5px;">
+      <div class="archive__item-teaser" style="margin-bottom: 2px;">
         <a href="{{ project.url | relative_url }}">
           <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
         </a>
       </div>
       {% endif %}
       
-      <h2 class="archive__item-title">
+      <h2 class="archive__item-title" style="margin-top: 2px;">
         <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
       </h2>
       
