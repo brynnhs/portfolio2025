@@ -1,7 +1,7 @@
 ---
 title: "blahblah"
 date: 2025-03-24
-image: "/assets/ex.jpg"
+image: "/assets/images/ex.jpg"
 description: "A short description of the project."
 ---
 
