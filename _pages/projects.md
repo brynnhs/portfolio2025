@@ -4,22 +4,25 @@ title: "Projects"
 permalink: /projects/
 ---
 
-{% assign entries_layout = 'grid' %}
-<div class="entries-{{ entries_layout }}">
+<div class="entries-grid">
   {% for project in site.projects %}
-    <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    <article class="archive__item">
       {% if project.image %}
-        <div class="archive__item-teaser">
-          <a href="{{ project.url | relative_url }}">
-            <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
-          </a>
-        </div>
+      <div class="archive__item-teaser">
+        <a href="{{ project.url | relative_url }}">
+          <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
+        </a>
+      </div>
       {% endif %}
-      <h2 class="archive__item-title" itemprop="headline">
+      
+      <h2 class="archive__item-title">
         <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
       </h2>
+      
       {% if project.description %}
-        <p>{{ project.description }}</p>
+        <div class="archive__item-excerpt">
+          <p>{{ project.description }}</p>
+        </div>
       {% endif %}
     </article>
   {% endfor %}
