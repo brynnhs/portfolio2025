@@ -68,6 +68,7 @@ author:
   avatar : "/assets/images/bio-photo.jpg"
   bio    : "Masters student in Biomedial Engineering student with a focus in Neurotechnology, AI, and Digital Health at [ESPCI - PSL University](https://st4health.espci.fr/?lang=en)."
   location: "Paris, France"
+  school: "ESPCI - PSL University"
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
