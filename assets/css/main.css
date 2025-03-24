@@ -1,6 +1,7 @@
-.archive__item-teaser img {
-    width: 250px; /* Adjust this to your preferred thumbnail width */
-    height: auto; /* Maintains the aspect ratio */
-    object-fit: cover; /* ensures images stay neatly within the specified dimensions */
-    border-radius: 8px; /* Optional: rounded corners */
-  }
+/* Only target images inside projects grid on projects page */
+.entries-grid .archive__item-teaser img {
+    width: 250px; /* Adjust to your preferred thumbnail width */
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
