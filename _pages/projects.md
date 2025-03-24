@@ -20,7 +20,7 @@ permalink: /projects/
       </h2>
       
       {% if project.description %}
-        <div class="archive__item-excerpt" style="margin-top: 3px;">
+        <div class="archive__item-excerpt" style="margin-top: 2px;">
           <p>{{ project.description }}</p>
         </div>
       {% endif %}
