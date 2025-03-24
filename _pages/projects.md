@@ -1,8 +1,7 @@
 ---
-title: "My Project Title"
-date: 2025-03-24
-image: "/assets/ex.jpg"
-description: "A short description of the project."
+layout: archive
+title: "Projects"
+permalink: /projects/
 ---
 
 {% assign entries_layout = 'grid' %}
