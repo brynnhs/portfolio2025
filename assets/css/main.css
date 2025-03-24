@@ -1,7 +1,0 @@
-/* Only applies thumbnail sizing to images on projects page */
-.page--projects .archive__item-teaser img {
-    max-width: 250px; /* desired thumbnail width */
-    height: auto;
-    object-fit: cover;
-    border-radius: 8px;
-}
