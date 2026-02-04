@@ -1,0 +1,17 @@
+- type: "Education"
+  title: "Master's in Biomedical Engineering"
+  organization: "ESPCI - PSL University"
+  location: "Paris, France"
+  start_date: "2023"
+  end_date: "Present"
+  description: "Focus on Neurotechnology, AI, and Digital Health"
+  current: true
+
+- type: "Education"
+  title: "Bachelor's Degree"
+  organization: "Dalhousie University"
+  location: "Halifax, Canada"
+  start_date: "2019"
+  end_date: "2023"
+  description: "Biomedical Engineering"
+  current: false

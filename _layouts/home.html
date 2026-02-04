@@ -3,14 +3,48 @@ layout: archive
 title: "Welcome to My Portfolio"
 ---
 
-<div class="custom-homepage">
-  <h1>Welcome to My Portfolio</h1>
-  <p>Hi, I'm Brynn Harris-Shanks, a Master's student in Biomedical Engineering focusing on Neurotechnology, AI, and Digital Health.</p>
-  <p>Explore my projects, blog posts, and more!</p>
-  <a href="{{ '/about/' | relative_url }}" class="btn btn--primary">Learn More About Me</a>
-</div>
+<!-- Hero Section -->
+<section class="hero-section fade-in">
+  <div class="hero-content">
+    <h1 class="hero-title">
+      <span class="hero-greeting">Hi, I'm</span>
+      <span class="hero-name">{{ site.author.name }}</span>
+    </h1>
+    <div class="hero-subtitle">{{ site.author.bio | markdownify }}</div>
+    <p class="hero-location">
+      <i class="fas fa-map-marker-alt"></i> {{ site.author.location }}
+    </p>
+    <div class="hero-buttons">
+      <a href="{{ '/about/' | relative_url }}" class="btn btn--primary btn--large">Learn More About Me</a>
+      <a href="{{ '/projects/' | relative_url }}" class="btn btn--secondary btn--large">View My Projects</a>
+    </div>
+  </div>
+</section>
 
-<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
+<!-- Skills Section -->
+{% if site.data.skills %}
+<section class="skills-section fade-in">
+  <h2 class="section-title">Skills & Technologies</h2>
+  <div class="skills-grid">
+    {% for skill_category in site.data.skills %}
+    <div class="skill-category">
+      <h3 class="skill-category-title">{{ skill_category.category }}</h3>
+      <div class="skill-items">
+        {% for skill in skill_category.items %}
+        <span class="skill-badge skill-{{ skill.level | downcase }}">
+          {{ skill.name }}
+          <span class="skill-level">{{ skill.level }}</span>
+        </span>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<!-- Recent Posts Section -->
+<h3 class="archive__subtitle fade-in">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
 
 {% if paginator %}
   {% assign posts = paginator.posts %}
@@ -19,8 +53,9 @@ title: "Welcome to My Portfolio"
 {% endif %}
 
 {% assign entries_layout = page.entries_layout | default: 'list' %}
-<div class="entries-{{ entries_layout }}">
+<div class="entries-{{ entries_layout }} fade-in">
   {% include documents-collection.html entries=posts type=entries_layout %}
 </div>
 
 {% include paginator.html %}
+
