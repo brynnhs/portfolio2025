@@ -3,27 +3,11 @@ layout: archive
 title: "Welcome to My Portfolio"
 ---
 
-<!-- Profile Intro Section -->
-<section class="profile-intro-section fade-in">
-  <div class="profile-intro-content">
-    <div class="profile-image-wrapper">
-      <img src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }}" class="profile-image">
-    </div>
-    <div class="profile-text">
-      <h1 class="profile-name">{{ site.author.name }}</h1>
-      <div class="profile-bio">{{ site.author.bio | markdownify }}</div>
-      <p class="profile-location">
-        <i class="fas fa-map-marker-alt"></i> {{ site.author.location }}
-      </p>
-    </div>
-  </div>
-</section>
-
 <!-- What I'm Working On Section -->
 {% if site.data.working-on %}
 <section class="working-on-section fade-in">
   <h2 class="section-title">What I'm Working On</h2>
-  <p class="section-subtitle">Building in public - here's what I'm currently focused on</p>
+  <p class="section-subtitle">here's what I'm currently focused on</p>
   <div class="working-on-grid">
     {% for item in site.data.working-on %}
     <div class="working-on-card">

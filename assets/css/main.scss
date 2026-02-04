@@ -89,111 +89,39 @@ body::before {
 }
 
 /* ==========================================================================
-   Profile Intro Section
+   Home Page Layout with Sidebar
    ========================================================================== */
-.profile-intro-section {
-  margin: 2rem 0 3rem 0;
-  max-width: 1600px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 1rem;
-}
-
-.profile-intro-content {
-  display: flex;
-  align-items: center;
-  gap: 3rem;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 16px;
-  padding: 2.5rem;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-
-  @media (max-width: 64em) {
-    flex-direction: column;
-    text-align: center;
-    gap: 2rem;
-    padding: 2rem;
-  }
-
-  @media (max-width: 48em) {
-    padding: 1.5rem;
-    gap: 1.5rem;
+/* Ensure sidebar and main content work together */
+.author__avatar {
+  img {
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
 }
 
-.profile-image-wrapper {
-  flex-shrink: 0;
-}
+.author__content {
+  .author__bio {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
 
-.profile-image {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid rgba(255, 255, 255, 0.5);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-
-  @media (max-width: 64em) {
-    width: 150px;
-    height: 150px;
+    a {
+      color: var(--primary-color);
+      text-decoration: underline;
+    }
   }
 
-  @media (max-width: 48em) {
-    width: 120px;
-    height: 120px;
-  }
-}
+  .author__location {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
 
-.profile-text {
-  flex: 1;
-}
-
-.profile-name {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin: 0 0 1rem 0;
-  color: var(--text-color);
-
-  @media (max-width: 64em) {
-    font-size: 2rem;
-  }
-
-  @media (max-width: 48em) {
-    font-size: 1.75rem;
-  }
-}
-
-.profile-bio {
-  font-size: 1.15rem;
-  line-height: 1.7;
-  color: var(--secondary-color);
-  margin-bottom: 1rem;
-
-  @media (max-width: 64em) {
-    font-size: 1.1rem;
-  }
-
-  @media (max-width: 48em) {
-    font-size: 1rem;
-  }
-
-  a {
-    color: var(--primary-color);
-    text-decoration: underline;
-  }
-}
-
-.profile-location {
-  font-size: 1rem;
-  color: var(--secondary-color);
-  margin: 0;
-
-  i {
-    margin-right: 0.5rem;
-    color: var(--primary-color);
+    i {
+      margin-right: 0.5rem;
+      color: var(--primary-color);
+    }
   }
 }
 
@@ -340,7 +268,11 @@ body::before {
 /* ==========================================================================
    Skills Section
    ========================================================================== */
-.skills-section,
+.skills-section {
+  margin: 0 0 3rem 0;
+  padding: 0;
+}
+
 .about-skills-section {
   margin: 3rem 0;
   padding: 2rem 0;
@@ -584,18 +516,8 @@ body::before {
    What I'm Working On Section
    ========================================================================== */
 .working-on-section {
-  margin: 3rem 0;
-  padding: 2rem 0;
-  max-width: 1600px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-
-  @media (max-width: 48em) {
-    margin: 3rem 0;
-    padding: 2rem 1rem;
-  }
+  margin: 0 0 3rem 0;
+  padding: 0;
 }
 
 .section-subtitle {
