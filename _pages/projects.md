@@ -5,6 +5,28 @@ permalink: /projects/
 ---
 
 <div class="projects-page fade-in">
+  <!-- Expanded Project Section (populated by JavaScript) -->
+  <div class="expanded-project-section fade-in" id="expanded-project" style="display: none;">
+    <div class="expanded-project-header">
+      <h2 class="expanded-project-title" id="expanded-title"></h2>
+      <button class="collapse-project-btn" onclick="collapseProject()" aria-label="Collapse project">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <div class="expanded-project-image" id="expanded-image" style="display: none;">
+      <img id="expanded-image-src" src="" alt="">
+    </div>
+    
+    <div class="expanded-project-content">
+      <span class="expanded-project-category" id="expanded-category" style="display: none;"></span>
+      <p class="expanded-project-description" id="expanded-description"></p>
+      <div class="expanded-project-body" id="expanded-body"></div>
+      <div class="expanded-project-technologies" id="expanded-technologies" style="display: none;"></div>
+      <div class="expanded-project-links" id="expanded-links" style="display: none;"></div>
+    </div>
+  </div>
+
   <!-- Project Filters -->
   <div class="project-filters fade-in">
     <button class="filter-btn active" data-filter="all">All Projects</button>
@@ -18,6 +40,7 @@ permalink: /projects/
   <div class="entries-grid projects-grid">
     {% for project in site.projects %}
       <article class="archive__item project-card" 
+               data-project-slug="{{ project.path | split: '/' | last | split: '.' | first }}"
                data-category="{% if project.category %}{{ project.category | downcase | replace: ' ', '-' }}{% else %}all{% endif %}">
         {% if project.image %}
         <div class="archive__item-teaser project-image">
@@ -71,3 +94,21 @@ permalink: /projects/
   <p class="no-projects">No projects to display yet. Check back soon!</p>
   {% endif %}
 </div>
+
+<!-- Store project data for JavaScript -->
+<script type="application/json" id="projects-data">
+[
+  {% for project in site.projects %}
+  {
+    "slug": "{{ project.path | split: '/' | last | split: '.' | first }}",
+    "title": {{ project.title | jsonify }},
+    "description": {{ project.description | jsonify }},
+    "category": {{ project.category | jsonify }},
+    "image": {{ project.image | jsonify }},
+    "content": {{ project.content | jsonify }},
+    "technologies": {{ project.technologies | jsonify }},
+    "links": {{ project.links | jsonify }}
+  }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]
+</script>

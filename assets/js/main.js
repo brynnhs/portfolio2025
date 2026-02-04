@@ -138,6 +138,116 @@
   }
 
   // ==========================================================================
+  // Expanded Project Feature
+  // ==========================================================================
+  function initExpandedProject() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const expandParam = urlParams.get('expand');
+    
+    if (!expandParam) return;
+
+    // Get projects data from JSON
+    const projectsDataEl = document.getElementById('projects-data');
+    if (!projectsDataEl) return;
+    
+    let projects;
+    try {
+      projects = JSON.parse(projectsDataEl.textContent);
+    } catch (e) {
+      console.error('Error parsing projects data:', e);
+      return;
+    }
+    
+    const project = projects.find(p => p.slug === expandParam);
+    
+    if (!project) return;
+
+    // Populate expanded project section
+    const expandedSection = document.getElementById('expanded-project');
+    if (!expandedSection) return;
+
+    const titleEl = document.getElementById('expanded-title');
+    const descriptionEl = document.getElementById('expanded-description');
+    const categoryEl = document.getElementById('expanded-category');
+    const imageEl = document.getElementById('expanded-image');
+    const imageSrc = document.getElementById('expanded-image-src');
+    const bodyEl = document.getElementById('expanded-body');
+    const techEl = document.getElementById('expanded-technologies');
+    const linksEl = document.getElementById('expanded-links');
+
+    if (titleEl) titleEl.textContent = project.title || '';
+    if (descriptionEl) descriptionEl.textContent = project.description || '';
+    
+    if (project.category && categoryEl) {
+      categoryEl.textContent = project.category;
+      categoryEl.style.display = 'inline-block';
+    }
+
+    if (project.image && imageEl && imageSrc) {
+      imageSrc.src = project.image.startsWith('/') ? project.image : '/' + project.image;
+      imageSrc.alt = project.title || '';
+      imageEl.style.display = 'block';
+    }
+
+    // Convert markdown content to HTML (basic conversion)
+    if (project.content && bodyEl) {
+      // For now, just display raw content - Jekyll should have already converted it
+      // But since we're getting it from JSON, it might be markdown
+      bodyEl.innerHTML = project.content;
+    }
+
+    if (project.technologies && project.technologies.length > 0 && techEl) {
+      techEl.innerHTML = '<h3>Technologies</h3><div class="tech-badges">' +
+        project.technologies.map(tech => `<span class="tech-badge">${tech}</span>`).join('') +
+        '</div>';
+      techEl.style.display = 'block';
+    }
+
+    if (project.links && project.links.length > 0 && linksEl) {
+      linksEl.innerHTML = '<h3>Links</h3><div class="project-links">' +
+        project.links.map(link => 
+          `<a href="${link.url}" class="project-link" target="_blank" rel="noopener noreferrer">
+            <i class="${link.icon || 'fas fa-external-link-alt'}"></i> ${link.label}
+          </a>`
+        ).join('') +
+        '</div>';
+      linksEl.style.display = 'block';
+    }
+
+    // Show expanded section and scroll to it
+    expandedSection.style.display = 'block';
+    
+    // Hide the corresponding project card in the grid
+    const projectCard = document.querySelector(`[data-project-slug="${expandParam}"]`);
+    if (projectCard) {
+      projectCard.style.display = 'none';
+    }
+
+    // Scroll to expanded section
+    setTimeout(() => {
+      expandedSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  }
+
+  // Collapse expanded project
+  window.collapseProject = function() {
+    const expandedSection = document.getElementById('expanded-project');
+    if (expandedSection) {
+      expandedSection.style.display = 'none';
+    }
+
+    // Show all project cards
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.style.display = '';
+    });
+
+    // Remove query parameter from URL
+    const url = new URL(window.location);
+    url.searchParams.delete('expand');
+    window.history.replaceState({}, '', url);
+  };
+
+  // ==========================================================================
   // Initialize all features when DOM is ready
   // ==========================================================================
   function init() {
@@ -149,6 +259,7 @@
         initScrollToTop();
         initProjectFiltering();
         initMobileMenu();
+        initExpandedProject();
       });
     } else {
       // DOM is already loaded
@@ -157,6 +268,7 @@
       initScrollToTop();
       initProjectFiltering();
       initMobileMenu();
+      initExpandedProject();
     }
   }
 
