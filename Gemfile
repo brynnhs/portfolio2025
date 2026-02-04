@@ -1,17 +1,8 @@
 source "https://rubygems.org"
 
+# GitHub Pages gem - includes all supported Jekyll plugins
 gem "github-pages", group: :jekyll_plugins
 
+# Platform-specific gems
 gem "tzinfo-data"
 gem "wdm", "~> 0.1.0" if Gem.win_platform?
-
-# If you have any plugins, put them here!
-group :jekyll_plugins do
-  gem "jekyll-paginate"
-  gem "jekyll-sitemap"
-  gem "jekyll-gist"
-  gem "jekyll-feed"
-  gem "jemoji"
-  gem "jekyll-include-cache"
-  gem "jekyll-algolia"
-end
