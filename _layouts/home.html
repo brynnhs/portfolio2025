@@ -10,7 +10,10 @@ title: "Welcome to My Portfolio"
   <p class="section-subtitle">here's what I'm currently focused on</p>
   <div class="working-on-grid">
     {% for item in site.data.working-on %}
-    <div class="working-on-card">
+    {% if item.project_link and item.project_link != "" %}
+    <a href="{{ item.project_link | relative_url }}" class="working-on-card-link">
+    {% endif %}
+    <div class="working-on-card {% if item.project_link and item.project_link != '' %}clickable{% endif %}">
       <div class="working-on-header">
         <div class="working-on-icon" style="background: {{ item.color }}20; color: {{ item.color }};">
           <i class="{{ item.icon }}"></i>
@@ -19,6 +22,11 @@ title: "Welcome to My Portfolio"
           <h3 class="working-on-title">{{ item.title }}</h3>
           <span class="working-on-category">{{ item.category }}</span>
         </div>
+        {% if item.project_link and item.project_link != "" %}
+        <div class="working-on-link-icon">
+          <i class="fas fa-arrow-right"></i>
+        </div>
+        {% endif %}
       </div>
       <p class="working-on-description">{{ item.description }}</p>
       <div class="working-on-progress">
@@ -34,6 +42,9 @@ title: "Welcome to My Portfolio"
         <small class="working-on-updated">Updated {{ item.updated | date: "%B %d, %Y" }}</small>
       </div>
     </div>
+    {% if item.project_link and item.project_link != "" %}
+    </a>
+    {% endif %}
     {% endfor %}
   </div>
 </section>

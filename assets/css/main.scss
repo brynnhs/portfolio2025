@@ -549,6 +549,12 @@ body::before {
   }
 }
 
+.working-on-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
 .working-on-card {
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
@@ -561,6 +567,10 @@ body::before {
   display: flex;
   flex-direction: column;
 
+  &.clickable {
+    cursor: pointer;
+  }
+
   &:hover {
     background: rgba(255, 255, 255, 0.3);
     box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
@@ -569,11 +579,35 @@ body::before {
   }
 }
 
+.working-on-card-link:hover .working-on-card {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
 .working-on-header {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
   margin-bottom: 1rem;
+  position: relative;
+}
+
+.working-on-link-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.working-on-card.clickable .working-on-link-icon,
+.working-on-card-link:hover .working-on-link-icon {
+  opacity: 1;
+  transform: translateX(4px);
 }
 
 .working-on-icon {

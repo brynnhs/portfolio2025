@@ -6,6 +6,7 @@
   icon: "fas fa-graduation-cap"
   color: "#0066cc"
   updated: "2025-01-15"
+  project_link: "/projects/BioFabLab/"
 
 - title: "Learning French"
   category: "Personal Development"
@@ -15,6 +16,7 @@
   icon: "fas fa-language"
   color: "#00d4ff"
   updated: "2025-01-20"
+  project_link: ""
 
 - title: "AI Ethics Course"
   category: "Education"
@@ -24,3 +26,4 @@
   icon: "fas fa-brain"
   color: "#6c757d"
   updated: "2025-01-18"
+  project_link: ""
