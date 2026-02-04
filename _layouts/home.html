@@ -3,45 +3,21 @@ layout: archive
 title: "Welcome to My Portfolio"
 ---
 
-<!-- Hero Section -->
-<section class="hero-section fade-in">
-  <div class="hero-content">
-    <h1 class="hero-title">
-      <span class="hero-greeting">Hi, I'm</span>
-      <span class="hero-name">{{ site.author.name }}</span>
-    </h1>
-    <div class="hero-subtitle">{{ site.author.bio | markdownify }}</div>
-    <p class="hero-location">
-      <i class="fas fa-map-marker-alt"></i> {{ site.author.location }}
-    </p>
-    <div class="hero-buttons">
-      <a href="{{ '/about/' | relative_url }}" class="btn btn--primary btn--large">Learn More About Me</a>
-      <a href="{{ '/projects/' | relative_url }}" class="btn btn--secondary btn--large">View My Projects</a>
+<!-- Profile Intro Section -->
+<section class="profile-intro-section fade-in">
+  <div class="profile-intro-content">
+    <div class="profile-image-wrapper">
+      <img src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }}" class="profile-image">
+    </div>
+    <div class="profile-text">
+      <h1 class="profile-name">{{ site.author.name }}</h1>
+      <div class="profile-bio">{{ site.author.bio | markdownify }}</div>
+      <p class="profile-location">
+        <i class="fas fa-map-marker-alt"></i> {{ site.author.location }}
+      </p>
     </div>
   </div>
 </section>
-
-<!-- Skills Section -->
-{% if site.data.skills %}
-<section class="skills-section fade-in">
-  <h2 class="section-title">Skills & Technologies</h2>
-  <div class="skills-grid">
-    {% for skill_category in site.data.skills %}
-    <div class="skill-category">
-      <h3 class="skill-category-title">{{ skill_category.category }}</h3>
-      <div class="skill-items">
-        {% for skill in skill_category.items %}
-        <span class="skill-badge skill-{{ skill.level | downcase }}">
-          {{ skill.name }}
-          <span class="skill-level">{{ skill.level }}</span>
-        </span>
-        {% endfor %}
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-</section>
-{% endif %}
 
 <!-- What I'm Working On Section -->
 {% if site.data.working-on %}
@@ -72,6 +48,28 @@ title: "Welcome to My Portfolio"
       </div>
       <div class="working-on-footer">
         <small class="working-on-updated">Updated {{ item.updated | date: "%B %d, %Y" }}</small>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<!-- Skills Section -->
+{% if site.data.skills %}
+<section class="skills-section fade-in">
+  <h2 class="section-title">Skills & Technologies</h2>
+  <div class="skills-grid">
+    {% for skill_category in site.data.skills %}
+    <div class="skill-category">
+      <h3 class="skill-category-title">{{ skill_category.category }}</h3>
+      <div class="skill-items">
+        {% for skill in skill_category.items %}
+        <span class="skill-badge skill-{{ skill.level | downcase }}">
+          {{ skill.name }}
+          <span class="skill-level">{{ skill.level }}</span>
+        </span>
+        {% endfor %}
       </div>
     </div>
     {% endfor %}
