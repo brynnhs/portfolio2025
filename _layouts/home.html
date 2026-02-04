@@ -43,6 +43,42 @@ title: "Welcome to My Portfolio"
 </section>
 {% endif %}
 
+<!-- What I'm Working On Section -->
+{% if site.data.working-on %}
+<section class="working-on-section fade-in">
+  <h2 class="section-title">What I'm Working On</h2>
+  <p class="section-subtitle">Building in public - here's what I'm currently focused on</p>
+  <div class="working-on-grid">
+    {% for item in site.data.working-on %}
+    <div class="working-on-card">
+      <div class="working-on-header">
+        <div class="working-on-icon" style="background: {{ item.color }}20; color: {{ item.color }};">
+          <i class="{{ item.icon }}"></i>
+        </div>
+        <div class="working-on-title-group">
+          <h3 class="working-on-title">{{ item.title }}</h3>
+          <span class="working-on-category">{{ item.category }}</span>
+        </div>
+      </div>
+      <p class="working-on-description">{{ item.description }}</p>
+      <div class="working-on-progress">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: {{ item.progress }}%; background: {{ item.color }};"></div>
+        </div>
+        <div class="progress-info">
+          <span class="progress-percent">{{ item.progress }}%</span>
+          <span class="working-on-status status-{{ item.status | downcase | replace: ' ', '-' }}">{{ item.status }}</span>
+        </div>
+      </div>
+      <div class="working-on-footer">
+        <small class="working-on-updated">Updated {{ item.updated | date: "%B %d, %Y" }}</small>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
 <!-- Recent Posts Section -->
 <h3 class="archive__subtitle fade-in">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
 

@@ -32,6 +32,15 @@
 /* Smooth Scrolling */
 html {
   scroll-behavior: smooth;
+  font-size: 16px;
+
+  @media (min-width: 64em) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 48em) {
+    font-size: 15px;
+  }
 }
 
 /* Page Background Image */
@@ -91,13 +100,14 @@ body::before {
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: white;
-  padding: 3rem 1.5rem;
-  margin: 1.5rem 0 2rem 0;
+  padding: 5rem 3rem;
+  margin: 2rem auto 4rem auto;
   text-align: center;
   position: relative;
   overflow: hidden;
   border-radius: 16px;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  max-width: 1400px;
 
   &::before {
     content: '';
@@ -112,70 +122,60 @@ body::before {
     z-index: 0;
   }
 
-  @media (min-width: 48em) {
-    padding: 4rem 2rem;
-    margin: 2rem 0 3rem 0;
-  }
-
-  @media (min-width: 64em) {
-    padding: 5rem 3rem;
-    margin: 2rem auto 4rem auto;
-    max-width: 1200px;
+  @media (max-width: 48em) {
+    padding: 3rem 1.5rem;
+    margin: 1.5rem 0 2rem 0;
   }
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
 .hero-greeting {
   display: block;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   font-weight: 300;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   opacity: 0.9;
 
-  @media (min-width: 48em) {
-    font-size: 1.3rem;
-  }
-
-  @media (min-width: 64em) {
-    font-size: 1.5rem;
+  @media (max-width: 48em) {
+    font-size: 1.1rem;
   }
 }
 
 .hero-name {
   display: block;
-  font-size: 2rem;
+  font-size: 4.5rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   line-height: 1.1;
 
-  @media (min-width: 48em) {
-    font-size: 3rem;
+  @media (max-width: 64em) {
+    font-size: 3.5rem;
   }
 
-  @media (min-width: 64em) {
-    font-size: 3.5rem;
+  @media (max-width: 48em) {
+    font-size: 2.5rem;
   }
 }
 
 .hero-subtitle {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
   opacity: 0.95;
 
-  @media (min-width: 48em) {
-    font-size: 1.1rem;
+  @media (max-width: 64em) {
+    font-size: 1.2rem;
   }
 
-  @media (min-width: 64em) {
-    font-size: 1.2rem;
+  @media (max-width: 48em) {
+    font-size: 1rem;
   }
 
   a {
@@ -185,13 +185,13 @@ body::before {
 }
 
 .hero-location {
-  font-size: 0.9rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
   opacity: 0.9;
 
-  @media (min-width: 48em) {
-    font-size: 1rem;
-    margin-bottom: 2rem;
+  @media (max-width: 48em) {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
   }
 
   i {
@@ -207,12 +207,13 @@ body::before {
 }
 
 .btn--large {
-  padding: 0.75rem 1.75rem;
-  font-size: 1rem;
+  padding: 1rem 2.5rem;
+  font-size: 1.15rem;
+  font-weight: 600;
 
-  @media (min-width: 48em) {
-    padding: 0.875rem 2rem;
-    font-size: 1.1rem;
+  @media (max-width: 48em) {
+    padding: 0.75rem 1.75rem;
+    font-size: 1rem;
   }
 }
 
@@ -232,19 +233,35 @@ body::before {
    ========================================================================== */
 .skills-section,
 .about-skills-section {
-  margin: 3rem 0;
-  padding: 2rem 0;
+  margin: 4rem 0;
+  padding: 3rem 0;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+
+  @media (max-width: 48em) {
+    margin: 3rem 0;
+    padding: 2rem 1rem;
+  }
 }
 
 .section-title {
-  font-size: 1.75rem;
-  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+  margin-bottom: 2.5rem;
   text-align: center;
   color: var(--text-color);
+  font-weight: 700;
 
-  @media (min-width: 48em) {
+  @media (max-width: 64em) {
     font-size: 2rem;
     margin-bottom: 2rem;
+  }
+
+  @media (max-width: 48em) {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
   }
 }
 
@@ -281,11 +298,18 @@ body::before {
 }
 
 .skill-category-title {
-  font-size: 1.3rem;
-  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  margin-bottom: 1.25rem;
   color: var(--primary-color);
   border-bottom: 2px solid var(--border-color);
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.75rem;
+  font-weight: 600;
+
+  @media (max-width: 48em) {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+  }
 }
 
 .skill-items {
@@ -446,10 +470,208 @@ body::before {
 }
 
 /* ==========================================================================
+   What I'm Working On Section
+   ========================================================================== */
+.working-on-section {
+  margin: 4rem 0;
+  padding: 3rem 0;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+
+  @media (max-width: 48em) {
+    margin: 3rem 0;
+    padding: 2rem 1rem;
+  }
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--secondary-color);
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+  font-style: italic;
+
+  @media (max-width: 48em) {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.working-on-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+
+  @media (min-width: 48em) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 64em) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.working-on-card {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  padding: 1.75rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+.working-on-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.working-on-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  flex-shrink: 0;
+}
+
+.working-on-title-group {
+  flex: 1;
+}
+
+.working-on-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: var(--text-color);
+
+  @media (max-width: 48em) {
+    font-size: 1.2rem;
+  }
+}
+
+.working-on-category {
+  font-size: 0.75rem;
+  padding: 0.3rem 0.85rem;
+  background: rgba(0, 102, 204, 0.1);
+  color: var(--primary-color);
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.working-on-description {
+  color: var(--secondary-color);
+  line-height: 1.7;
+  margin: 0 0 1.75rem 0;
+  flex-grow: 1;
+  font-size: 1rem;
+
+  @media (max-width: 48em) {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.working-on-progress {
+  margin-bottom: 1.25rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 5px;
+  transition: width 0.5s ease;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.progress-percent {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.working-on-status {
+  padding: 0.3rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-in-progress,
+.status-active {
+  background: rgba(0, 212, 255, 0.2);
+  color: #00a8cc;
+}
+
+.status-completed {
+  background: rgba(76, 175, 80, 0.2);
+  color: #4caf50;
+}
+
+.status-paused {
+  background: rgba(255, 152, 0, 0.2);
+  color: #ff9800;
+}
+
+.working-on-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 0.75rem;
+  margin-top: auto;
+}
+
+.working-on-updated {
+  color: var(--secondary-color);
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
    Projects Page
    ========================================================================== */
 .projects-page {
   margin: 2rem 0;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 2rem;
+
+  @media (max-width: 48em) {
+    padding: 0 1rem;
+  }
 }
 
 .project-filters {
@@ -651,23 +873,39 @@ body::before {
    About Page
    ========================================================================== */
 .about-content {
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
+  padding: 0 2rem;
+
+  @media (max-width: 48em) {
+    padding: 0 1rem;
+  }
 }
 
 .about-intro {
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 
   h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
     color: var(--primary-color);
+    font-weight: 700;
+
+    @media (max-width: 48em) {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
   }
 
   p {
     line-height: 1.8;
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
+    margin-bottom: 1.25rem;
+    font-size: 1.2rem;
+
+    @media (max-width: 48em) {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
   }
 }
 

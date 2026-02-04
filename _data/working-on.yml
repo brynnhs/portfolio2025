@@ -1,0 +1,26 @@
+- title: "Masters Thesis"
+  category: "Research"
+  description: "Working on my thesis in Biomedical Engineering focusing on Neurotechnology applications."
+  status: "In Progress"
+  progress: 60
+  icon: "fas fa-graduation-cap"
+  color: "#0066cc"
+  updated: "2025-01-15"
+
+- title: "Learning French"
+  category: "Personal Development"
+  description: "Improving my French language skills through daily practice and conversation."
+  status: "Active"
+  progress: 40
+  icon: "fas fa-language"
+  color: "#00d4ff"
+  updated: "2025-01-20"
+
+- title: "AI Ethics Course"
+  category: "Education"
+  description: "Taking an online course on AI Ethics to better understand responsible AI development."
+  status: "In Progress"
+  progress: 30
+  icon: "fas fa-brain"
+  color: "#6c757d"
+  updated: "2025-01-18"
